@@ -1,0 +1,14 @@
+{{ partial "header.html" . }}
+
+<div id="home">
+	<h1>Blog Posts</h1>
+	<ul class="posts">
+		{{ range .Data.Pages.ByPublishDate }}
+			{{ if eq .Section "posts" }}
+	  		<li><span> {{ .Date.Format .Site.Params.DateForm }}&raquo; </span><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+			{{ end }}
+		{{ end }}
+	</ul>	
+</div>
+
+{{ partial "footer.html" . }}
